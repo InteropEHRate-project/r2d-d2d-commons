@@ -4,20 +4,18 @@ package eu.interopehrate.protocols.server;
  *       Author: Engineering Ingegneria Informatica - University of Piraeus (UPRC)
  *      Project: InteropEHRate - www.interopehrate.eu
  *
- *  Description: Marker interface of a local service acting as owner of Resources.
+ *  Description: Marker interface of a running service able to reply to requests that comply
+ *              to the D2D protocol or to the R2D Access protocol defined by the
+ *              InteropEHRate specifications.
  */
 public interface ResourceServer {
 
     /**
-     * Needed to register an instance of ResourceServerListener
+     * Method used to register the listener used by the ResourceServer
+     * to forward to the App the requests coming from the HCP App.
+     *
      * @param listener
      */
-    public void registerListener(ResourceServerListener listener);
-
-    /**
-     * Needed to deregister an instance of ResourceServerListener
-     * @param listener
-     */
-    public void deregisterListener(ResourceServerListener listener);
+    void setResourceServerListener(ResourceServerListener listener);
 
 }

@@ -4,9 +4,9 @@ import org.hl7.fhir.r4.model.DocumentReference;
 import org.hl7.fhir.r4.model.Resource;
 
 import java.util.Date;
+import java.util.Iterator;
 
 import eu.interopehrate.protocols.common.ResourceCategory;
-import eu.interopehrate.protocols.common.ResourceIterator;
 
 /**
  *       Author: Engineering Ingegneria Informatica - University of Piraeus (UPRC)
@@ -22,7 +22,7 @@ public interface ResourceServerListener {
      * @param ids: array of IDs of the resources to be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<Resource> onResourcesRequested(String ids);
+    Iterator<Resource> onResourcesRequested(String ids);
 
 
     /**
@@ -31,7 +31,7 @@ public interface ResourceServerListener {
      * @param from: mandatory argument used to specify the date beyond which resources must be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<Resource> onResourcesRequested(Date from);
+    Iterator<Resource> onResourcesRequested(Date from);
 
 
     /**
@@ -47,7 +47,7 @@ public interface ResourceServerListener {
      * @param from: argument used to specify the date beyond which resources must be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<Resource> onResourcesRequested(ResourceCategory category,
+    Iterator<Resource> onResourcesRequested(ResourceCategory category,
                                                            String type,
                                                            Date from);
 
@@ -59,8 +59,8 @@ public interface ResourceServerListener {
      * @param categories: mandatory set of categories.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<Resource> onResourcesRequested(Date from,
-                                                           ResourceCategory... categories);
+    Iterator<Resource> onResourcesRequested(Date from,
+                                                   ResourceCategory... categories);
 
     /**
      *
@@ -74,9 +74,10 @@ public interface ResourceServerListener {
      *                 <system name>|<code>. Valid examples are "http://loinc.org|31455", or
      *                 "http://snomed.org|7162445".
      * @param mostRecentSize: mandatory argument specifying the number of resources to be retrieved.
+     *                        must be <= 10.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<Resource> onResourcesRequested(ResourceCategory category,
+    Iterator<Resource> onResourcesRequested(ResourceCategory category,
                                                            String type,
                                                            int mostRecentSize);
 
@@ -87,7 +88,7 @@ public interface ResourceServerListener {
      *           must be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<DocumentReference> onDocumentReferencesRequested(Date from);
+    Iterator<DocumentReference> onDocumentReferencesRequested(Date from);
 
     /**
      * Method invoked to retrieve DocumentReference(s) belonging to one category having a
@@ -103,7 +104,7 @@ public interface ResourceServerListener {
      * @param from: optional argument used to specify the date beyond which resources must be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<DocumentReference> onDocumentReferencesRequested(ResourceCategory category,
+    Iterator<DocumentReference> onDocumentReferencesRequested(ResourceCategory category,
                                                                              String type,
                                                                              Date from);
 
@@ -116,9 +117,7 @@ public interface ResourceServerListener {
      * @param categories: mandatory set of categories.
      * @return an instance of ResourceIterator containing the matching resources.
      */
-    public ResourceIterator<DocumentReference> onDocumentReferencesRequested(Date from,
+    Iterator<DocumentReference> onDocumentReferencesRequested(Date from,
                                                            ResourceCategory... categories);
-
-
 
 }

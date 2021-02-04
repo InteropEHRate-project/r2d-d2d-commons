@@ -7,7 +7,7 @@ package eu.interopehrate.protocols.common;
  *  Description: Enumeration defining the type of Document handled by the APIs.
  */
 public enum DocumentCategory implements ResourceCategory {
- 
+
     PATIENT_SUMMARY,
     IMAGE_REPORT,
     LABORATORY_REPORT

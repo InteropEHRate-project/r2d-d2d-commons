@@ -4,9 +4,9 @@ import org.hl7.fhir.r4.model.DocumentReference;
 import org.hl7.fhir.r4.model.Resource;
 
 import java.util.Date;
+import java.util.Iterator;
 
 import eu.interopehrate.protocols.common.ResourceCategory;
-import eu.interopehrate.protocols.common.ResourceIterator;
 
 /**
  *       Author: Engineering Ingegneria Informatica - University of Piraeus (UPRC)
@@ -22,7 +22,7 @@ public interface ResourceReader {
      *
      * @return an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<Resource> getResources(Date from);
+    Iterator<Resource> getResources(Date from);
 
     /**
      *
@@ -37,7 +37,7 @@ public interface ResourceReader {
      *
      * @return an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<Resource> getResourcesByCategory(ResourceCategory category,
+    Iterator<Resource> getResourcesByCategory(ResourceCategory category,
                                                       String type,
                                                       Date from);
 
@@ -49,7 +49,7 @@ public interface ResourceReader {
      *
      * @return an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<Resource> getResourcesByCategories(Date from,
+    Iterator<Resource> getResourcesByCategories(Date from,
                                                         ResourceCategory... categories);
 
     /**
@@ -64,7 +64,7 @@ public interface ResourceReader {
      *
      * @return an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<Resource> getMostRecentResources(ResourceCategory category,
+    Iterator<Resource> getMostRecentResources(ResourceCategory category,
                                                       String type,
                                                       int mostRecentSize);
 
@@ -75,7 +75,7 @@ public interface ResourceReader {
      *
      * @return  an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<DocumentReference> getDocumentReferences(Date from);
+    Iterator<DocumentReference> getDocumentReferences(Date from);
 
 
     /**
@@ -91,7 +91,7 @@ public interface ResourceReader {
      *
      * @return  an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<DocumentReference> getDocumentReferencesByCategory(ResourceCategory category,
+    Iterator<DocumentReference> getDocumentReferencesByCategory(ResourceCategory category,
                                                                String type,
                                                                Date from);
 
@@ -108,7 +108,7 @@ public interface ResourceReader {
      *
      * @return  an instance of ResourceIterator containing the results of the request.
      */
-    ResourceIterator<DocumentReference> getDocumentReferencesByCategories(String type,
+    Iterator<DocumentReference> getDocumentReferencesByCategories(String type,
                                                                 Date from,
                                                                 ResourceCategory... categories);
 
@@ -118,6 +118,6 @@ public interface ResourceReader {
      *
      * @return an instance of ResourceIterator containing the requested resources.
      */
-    ResourceIterator<Resource> getResourcesById(String... ids);
+    Iterator<Resource> getResourcesById(String... ids);
 
 }
