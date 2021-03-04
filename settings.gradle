@@ -1,3 +1,3 @@
 rootProject.name='r2d-d2d-commons'
 include ':app'
-include ':protocols'
+include ':mr2d-md2d'
