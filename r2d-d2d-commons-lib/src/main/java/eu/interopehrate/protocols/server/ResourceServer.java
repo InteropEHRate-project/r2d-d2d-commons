@@ -14,7 +14,7 @@ public interface ResourceServer {
      * Method used to register the listener used by the ResourceServer
      * to forward to the App the requests coming from the HCP App.
      *
-     * @param listener
+     * @param listener: the listener that must be registered to handle callbacks.
      */
     void setResourceServerListener(ResourceServerListener listener);
 

@@ -65,7 +65,7 @@ public interface ResourceServerListener {
      * @param type:    optional code identifying, within the requested <strong>category</strong>,
      *                 what instances of resources must be retrieved.
      *                 The code should be part of a standard coding system and should have this form:
-     *                 <system name>|<code>. Valid examples are "http://loinc.org|31455", or
+     *                 "&lt;system name&gt;|&lt;code&gt;". Valid examples are "http://loinc.org|31455", or
      *                 "http://snomed.org|7162445".
      * @param from: argument used to specify the date beyond which resources must be retrieved.
      * @param isSummary: optional argument used to specify if the client needs the entire
@@ -92,10 +92,10 @@ public interface ResourceServerListener {
      * @param type:    optional code identifying, within the requested <strong>category</strong>,
      *                 what instances of resources must be retrieved.
      *                 The code should be part of a standard coding system and should have this form:
-     *                 <system name>|<code>. Valid examples are "http://loinc.org|31455", or
+     *                 "&lt;system name&gt;|&lt;code&gt;". Valid examples are "http://loinc.org|31455", or
      *                 "http://snomed.org|7162445".
      * @param mostRecentSize: mandatory argument specifying the number of resources to be retrieved.
-     *                        must be <= 10.
+     *                        must be &lt;= 10.
      * @param isSummary: optional argument used to specify if the client needs the entire
      *                   resource or only a portion of it.
      * @return an instance of ResourceIterator containing the matching resources.

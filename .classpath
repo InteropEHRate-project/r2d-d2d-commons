@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="app/build/generated/source/buildConfig/release"/>
+	<classpathentry kind="src" path="app/src/androidTest/java"/>
+	<classpathentry kind="src" path="app/src/test/java"/>
+	<classpathentry kind="src" path="mr2d-md2d/build/generated/source/buildConfig/release"/>
+	<classpathentry kind="src" path="mr2d-md2d/src/androidTest/java"/>
+	<classpathentry kind="src" path="mr2d-md2d/src/main/java"/>
+	<classpathentry kind="src" path="mr2d-md2d/src/test/java"/>
+	<classpathentry kind="lib" path="app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/merged_java_res/release/out.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/release/out/b4cd464094ae655fa5846066d34bc52ce04d4c16714127539423230e80bd57be_0.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/release/out/b4cd464094ae655fa5846066d34bc52ce04d4c16714127539423230e80bd57be_1.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/release/out/b4cd464094ae655fa5846066d34bc52ce04d4c16714127539423230e80bd57be_2.jar"/>
+	<classpathentry kind="lib" path="app/build/intermediates/project_dex_archive/release/out/b4cd464094ae655fa5846066d34bc52ce04d4c16714127539423230e80bd57be_3.jar"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="mr2d-md2d/build/intermediates/aar_main_jar/release/classes.jar"/>
+	<classpathentry kind="lib" path="mr2d-md2d/build/intermediates/compile_r_class_jar/release/R.jar"/>
+	<classpathentry kind="lib" path="mr2d-md2d/build/intermediates/merged_java_res/release/out.jar"/>
+	<classpathentry kind="output" path="app/build/intermediates/javac/release/classes"/>
+</classpath>

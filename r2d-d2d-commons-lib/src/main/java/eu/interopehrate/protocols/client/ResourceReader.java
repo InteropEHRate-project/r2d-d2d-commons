@@ -79,7 +79,7 @@ public interface ResourceReader {
      * @param type: optional code identifying, within the requested <strong>category</strong>,
      *            what instances of resources must be retrieved.
      *            The code should be part of a standard coding system and should have this form:
-     *            <system name>|<code>. Valid examples are "http://loinc.org|31455", or
+     *            "&lt;system name&gt;|&lt;code&gt;". Valid examples are "http://loinc.org|31455", or
      *            "http://snomed.org|7162445".
      *
      * @param from: optional argument used to retrieve only resources produced after a specific date.
@@ -126,7 +126,7 @@ public interface ResourceReader {
      * @param type: optional code identifying, within the requested <strong>category</strong>, the
      *             what instances of resources must be retrieved.
      *             The code should be part of a standard coding system and should have this form:
-     *            <system name>|<code>. Valid examples are "http://loinc.org|31455", or
+     *            "&lt;system name&gt;|&lt;code&gt;". Valid examples are "http://loinc.org|31455", or
      *             "http://snomed.org|7162445".
      * @param mostRecentSize: number of instances that must be retrieved.
      *

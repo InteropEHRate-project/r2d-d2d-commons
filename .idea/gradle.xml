@@ -12,7 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/mr2d-md2d" />
+            <option value="$PROJECT_DIR$/r2d-d2d-commons-lib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

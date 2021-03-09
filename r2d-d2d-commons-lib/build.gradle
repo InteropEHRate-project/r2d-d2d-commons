@@ -1,0 +1,87 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = "eu.interoperhate"
+version = '0.0.4'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+
+    withSourcesJar()
+
+    withJavadocJar()
+}
+
+jar {
+    from sourceSets.main.allSource
+
+    manifest {
+        attributes(
+                'Specification-Title': 'R2D-D2D Common Library',
+                'Specification-Vendor': 'InteropEHRate project',
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+                'Implementation-Vendor': 'InteropEHRate project',
+        )
+    }
+}
+
+dependencies {
+    def FHIR_VERSION = "4.1.0"
+    api "ca.uhn.hapi.fhir:hapi-fhir-structures-r4:$FHIR_VERSION"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "r2d-d2d-commons"
+            artifact("build/libs/" + project.name + "-" + project.version + ".jar") {
+                extension "jar"
+
+                // adds dependencies to the generated POM
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', 'ca.uhn.hapi.fhir')
+                    dependencyNode.appendNode('artifactId', 'hapi-fhir-structures-r4')
+                    dependencyNode.appendNode('version', '4.1.0')
+                }
+            }
+            artifact sourcesJar
+            artifact javadocJar
+
+            // descriptive information to add to the generated POM file
+            pom {
+                name = 'R2D-D2D Library'
+                description = 'Android library (developed by InteropEHRate consortium) for common classes shared' +
+                        'by R2D and D2D.'
+                url = 'http://www.interopehrate.eu'
+                developers {
+                    developer {
+                        id = 'ENG'
+                        name = 'Engineering Ingegneria Informatica S.p.A.'
+                    }
+                    developer {
+                        id = 'UPRC'
+                        name = 'University of Piraeus - Athens'
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name "IEHR-Nexus"
+            url "http://213.249.46.206:8081/repository/maven-releases/"
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+        }
+    }
+}
