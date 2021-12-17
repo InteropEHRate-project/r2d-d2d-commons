@@ -26,8 +26,9 @@ public interface ResourceReader {
      *                   resource or only a portion of it.
      *
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> getResources(Date from, boolean isSummary);
+    Iterator<Resource> getResources(Date from, boolean isSummary) throws Exception;
 
 
     /**
@@ -41,10 +42,11 @@ public interface ResourceReader {
      * @param isSummary: optional argument used to specify if the client needs the entire
      *                   resource or only a portion of it.
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
     Iterator<Resource> getResourcesByCategories(Date from,
                                                 boolean isSummary,
-                                                ResourceCategory... categories);
+                                                ResourceCategory... categories) throws Exception;
 
 
     /**
@@ -60,10 +62,11 @@ public interface ResourceReader {
      *                   resource or only a portion of it.
      *
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
     Iterator<Resource> getResourcesByCategory(ResourceCategory category,
                                               Date from,
-                                              boolean isSummary);
+                                              boolean isSummary) throws Exception;
 
     /**
      * Method used to retrieve health data of the citizen belonging to one specific category. This
@@ -88,12 +91,13 @@ public interface ResourceReader {
      *                   resource or only a portion of it.
      *
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
     Iterator<Resource> getResourcesByCategory(ResourceCategory category,
                                               String subCategory,
                                               String type,
                                               Date from,
-                                              boolean isSummary);
+                                              boolean isSummary) throws Exception;
 
 
     /**
@@ -107,10 +111,11 @@ public interface ResourceReader {
      *                   resource or only a portion of it.
      *
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
     Iterator<Resource> getMostRecentResources(ResourceCategory category,
                                               int mostRecentSize,
-                                              boolean isSummary);
+                                              boolean isSummary) throws Exception;
 
 
     /**
@@ -134,12 +139,13 @@ public interface ResourceReader {
      *                   resource or only a portion of it.
      *
      * @return an instance of Iterator containing the results of the request.
+     * @throws Exception in case of failure
      */
     Iterator<Resource> getMostRecentResources(ResourceCategory category,
                                               String subCategory,
                                               String type,
                                               int mostRecentSize,
-                                              boolean isSummary);
+                                              boolean isSummary) throws Exception;
 
 
     /**
@@ -148,7 +154,8 @@ public interface ResourceReader {
      *
      * @return an instance of Iterator containing the requested resources. The id
      * must be valid within the scope of the connected instance of ResourceServer.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> getResourcesById(String... ids);
+    Iterator<Resource> getResourcesById(String... ids) throws Exception;
 
 }

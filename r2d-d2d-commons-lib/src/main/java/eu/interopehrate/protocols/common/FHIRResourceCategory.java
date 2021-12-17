@@ -8,16 +8,17 @@ package eu.interopehrate.protocols.common;
  */
 public enum FHIRResourceCategory  implements ResourceCategory {
 
-    DOCUMENT_REFERENCE
-    ,DOCUMENT_MANIFEST
-    ,OBSERVATION
-    ,DIAGNOSTIC_REPORT
-    ,MEDICATION_REQUEST
-    /*
-    ,CONDITION
-    ,MEDICATION
-    ,ALLERGIES_INTOLERANCE
-    ,ENCOUNTER
-     */
+    PATIENT,
+    DOCUMENT_REFERENCE,
+    DOCUMENT_MANIFEST,
+    DIAGNOSTIC_REPORT,
+    MEDICATION_REQUEST,
+    CONDITION,
+    IMMUNIZATION,
+    ALLERGY_INTOLERANCE,
+    OBSERVATION,
+    ENCOUNTER,
+    COMPOSITION,
+    PROCEDURE
 
 }

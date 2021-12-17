@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = "eu.interoperhate"
-version = '0.0.4'
+group = "eu.interopehrate"
+version = '0.0.7'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7

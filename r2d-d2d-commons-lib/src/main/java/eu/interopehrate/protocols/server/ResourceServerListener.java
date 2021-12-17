@@ -1,5 +1,6 @@
 package eu.interopehrate.protocols.server;
 
+import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.DocumentReference;
 import org.hl7.fhir.r4.model.Resource;
 
@@ -21,8 +22,9 @@ public interface ResourceServerListener {
      *
      * @param ids: array of IDs of the resources to be retrieved.
      * @return an instance of ResourceIterator containing the matching resources.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> onResourcesRequested(String ids);
+    Bundle onResourcesRequested(String... ids) throws Exception;
 
 
     /**
@@ -33,8 +35,9 @@ public interface ResourceServerListener {
      * @param isSummary: optional argument used to specify if the client needs the entire
      *                   resource or only a portion of it.
      * @return an instance of ResourceIterator containing the matching resources.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> onResourcesRequested(Date from, boolean isSummary);
+    Bundle onResourcesRequested(Date from, boolean isSummary) throws Exception;
 
 
     /**
@@ -46,10 +49,11 @@ public interface ResourceServerListener {
      *                   resource or only a portion of it.
      * @param categories: mandatory set of categories.
      * @return an instance of ResourceIterator containing the matching resources.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> onResourcesRequested(Date from,
-                                            boolean isSummary,
-                                            ResourceCategory... categories);
+    Bundle onResourcesRequested(Date from,
+                                boolean isSummary,
+                                ResourceCategory... categories) throws Exception;
 
 
     /**
@@ -71,12 +75,14 @@ public interface ResourceServerListener {
      * @param isSummary: optional argument used to specify if the client needs the entire
      *                   resource or only a portion of it.
      * @return an instance of ResourceIterator containing the matching resources.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> onResourcesRequested(ResourceCategory category,
-                                            String subCategory,
-                                            String type,
-                                            Date from,
-                                            boolean isSummary);
+    Bundle onResourcesRequested(ResourceCategory category,
+                                String subCategory,
+                                String type,
+                                Date from,
+                                boolean isSummary) throws Exception;
+
 
     /**
      *
@@ -99,12 +105,21 @@ public interface ResourceServerListener {
      * @param isSummary: optional argument used to specify if the client needs the entire
      *                   resource or only a portion of it.
      * @return an instance of ResourceIterator containing the matching resources.
+     * @throws Exception in case of failure
      */
-    Iterator<Resource> onResourcesRequested(ResourceCategory category,
-                                            String subCategory,
-                                            String type,
-                                            int mostRecentSize,
-                                            boolean isSummary);
+    Bundle onResourcesRequested(ResourceCategory category,
+                                String subCategory,
+                                String type,
+                                int mostRecentSize,
+                                boolean isSummary) throws Exception;
 
 
+    /**
+     * Metod invoked to notify the listener about the fact the new health data produced by the HCP
+     * App have received. These data should be stored in the S-EHR App database.
+     *
+     * @param healthDataBundle: bundle of heterogeneous FHIR resources
+     * @throws Exception in case of failure
+     */
+    public void onResourcesReceived(Bundle healthDataBundle) throws Exception;
 }

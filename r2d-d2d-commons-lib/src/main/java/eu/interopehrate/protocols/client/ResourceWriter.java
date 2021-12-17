@@ -15,7 +15,10 @@ public interface ResourceWriter {
      * Method used to sent a bundle of resources to a ResourceServer.
      *
      * @param healthData: bundle of data sent to the ResourceServer.
+     * @throws Exception in case of failure
      */
-    void sendHealthData(Bundle healthData);
+    void sendHealthData(Bundle healthData) throws Exception;
+
+
 
 }
